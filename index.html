@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор стоимости услуги</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="my.js" defer></script>
+</head>
+<body>
+  <main class="calculator">
+    <header class="calculator__header">
+      <h1>Калькулятор стоимости услуги</h1>
+      <p class="calculator__subtitle">Выберите параметры — стоимость пересчитается автоматически</p>
+    </header>
+
+    <form class="calculator__form" id="serviceForm" novalidate>
+      <div class="field">
+        <label class="field__label" for="quantity">Количество</label>
+        <input
+          class="field__input"
+          type="number"
+          id="quantity"
+          name="quantity"
+          value="1"
+          min="1"
+          step="1"
+          required>
+      </div>
+
+      <fieldset class="fieldset">
+        <legend class="fieldset__legend">Тип услуги</legend>
+
+        <label class="radio">
+          <input type="radio" name="serviceType" value="type1" checked>
+          <span class="radio__mark"></span>
+          <span class="radio__text">
+            <span class="radio__title">Базовая</span>
+            <span class="radio__desc">Без дополнительных опций</span>
+          </span>
+        </label>
+
+        <label class="radio">
+          <input type="radio" name="serviceType" value="type2">
+          <span class="radio__mark"></span>
+          <span class="radio__text">
+            <span class="radio__title">Стандартная</span>
+            <span class="radio__desc">С выбором опции</span>
+          </span>
+        </label>
+
+        <label class="radio">
+          <input type="radio" name="serviceType" value="type3">
+          <span class="radio__mark"></span>
+          <span class="radio__text">
+            <span class="radio__title">Премиум</span>
+            <span class="radio__desc">С дополнительным свойством</span>
+          </span>
+        </label>
+      </fieldset>
+
+      <div class="field" id="optionField">
+        <label class="field__label" for="option">Опция услуги</label>
+        <select class="field__input" id="option" name="option">
+          <option value="opt1">Опция 1 — базовая поддержка</option>
+          <option value="opt2">Опция 2 — расширенная поддержка</option>
+          <option value="opt3">Опция 3 — поддержка 24/7</option>
+        </select>
+      </div>
+
+      <div class="field field--checkbox" id="propertyField">
+        <label class="checkbox">
+          <input type="checkbox" id="property" name="property">
+          <span class="checkbox__mark"></span>
+          <span class="checkbox__text">Приоритетное выполнение (+30%)</span>
+        </label>
+      </div>
+    </form>
+
+    <section class="total" aria-live="polite">
+      <span class="total__label">Итого:</span>
+      <span class="total__value" id="totalPrice">0 ₽</span>
+    </section>
+
+    <p class="total__details" id="details">Выберите параметры услуги</p>
+  </main>
+</body>
+</html>
